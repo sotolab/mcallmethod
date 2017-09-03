@@ -1,0 +1,31 @@
+<head>
+  <title>Todo App</title>
+</head>
+
+<body>
+  <h1>Todo List ({{incompleteCount}})</h1>
+
+  <label class = "hide-completed">
+     <input type = "checkbox" checked = "{{hideCompleted}}" />
+     Hide Completed Tasks
+  </label>
+
+  <form class = "new-task">
+     <input type = "text" name = "text" placeholder = "Add new tasks" />
+  </form>
+
+  <ul>
+     {{#each tasks}}
+        {{> task}}
+     {{/each}}
+  </ul>
+ 
+</body>
+
+<template name = "task">
+  <li class = "{{#if checked}}checked{{/if}}">
+     <button class = "delete">x</button>
+     <input type = "checkbox" checked = "{{checked}}" class = "toggle-checked" />
+     <span>{{username}} - {{text}}</span>
+  </li>
+</template>
